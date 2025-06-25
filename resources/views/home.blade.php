@@ -19,12 +19,12 @@
                 </h1>
                 <p class="text-xl mb-8 text-blue-100 leading-relaxed">
                     Jelajahi kekayaan produk lokal dari Kepulauan Karimun Jawa. 
-                    Dukung ekonomi lokal dengan membeli produk berkualitas dari {{ $statistics['umkm_count'] }}+ UMKM terpercaya.
+                    Dukung ekonomi lokal dengan membeli produk berkualitas dari UMKM terpercaya.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                     <a href="{{ route('umkm.index') }}" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
                         <i class="fas fa-store mr-2"></i>
-                        Jelajahi {{ $statistics['umkm_count'] }} UMKM
+                        Jelajahi UMKM
                     </a>
                     <a href="#kategori" class="bg-transparent border-2 border-white hover:bg-white hover:text-blue-800 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300">
                         <i class="fas fa-arrow-down mr-2"></i>
@@ -52,23 +52,23 @@
                 <div class="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i class="fas fa-store text-blue-600 text-2xl"></i>
                 </div>
-                <h3 class="text-3xl font-bold text-blue-600 mb-2 counter" data-target="{{ $statistics['umkm_count'] }}">0</h3>
+                <h3 class="text-3xl font-bold text-blue-600 mb-2">150+</h3>
                 <p class="text-gray-600 font-medium">UMKM Terdaftar</p>
             </div>
             
             <div class="bg-white rounded-xl shadow-lg p-6 text-center transform hover:scale-105 transition-transform duration-300 hover:shadow-xl">
                 <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-eye text-green-600 text-2xl"></i>
+                    <i class="fas fa-box text-green-600 text-2xl"></i>
                 </div>
-                <h3 class="text-3xl font-bold text-green-600 mb-2 counter" data-target="{{ $statistics['total_views'] }}">0</h3>
-                <p class="text-gray-600 font-medium">Total Kunjungan</p>
+                <h3 class="text-3xl font-bold text-green-600 mb-2">500+</h3>
+                <p class="text-gray-600 font-medium">Produk Tersedia</p>
             </div>
             
             <div class="bg-white rounded-xl shadow-lg p-6 text-center transform hover:scale-105 transition-transform duration-300 hover:shadow-xl">
                 <div class="bg-yellow-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i class="fas fa-map-marker-alt text-yellow-600 text-2xl"></i>
                 </div>
-                <h3 class="text-3xl font-bold text-yellow-600 mb-2 counter" data-target="{{ $statistics['tourist_locations'] }}">0</h3>
+                <h3 class="text-3xl font-bold text-yellow-600 mb-2">25+</h3>
                 <p class="text-gray-600 font-medium">Lokasi Wisata</p>
             </div>
             
@@ -76,7 +76,7 @@
                 <div class="bg-cyan-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                     <i class="fas fa-users text-cyan-600 text-2xl"></i>
                 </div>
-                <h3 class="text-3xl font-bold text-cyan-600 mb-2 counter" data-target="{{ $statistics['monthly_visitors'] }}">0</h3>
+                <h3 class="text-3xl font-bold text-cyan-600 mb-2">1000+</h3>
                 <p class="text-gray-600 font-medium">Wisatawan/Bulan</p>
             </div>
         </div>
@@ -88,149 +88,161 @@
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-gray-800 mb-4">Kategori Produk UMKM</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Temukan berbagai produk unggulan dari {{ $categories->count() }} kategori pilihan</p>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">Temukan berbagai produk unggulan dari Karimun Jawa</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            @foreach($categories as $category)
-                <div class="group bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="bg-{{ $category['color'] }}-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-{{ $category['color'] }}-200 transition-colors duration-300">
-                        <i class="{{ $category['icon'] }} text-{{ $category['color'] }}-600 text-3xl"></i>
-                    </div>
-                    <h5 class="text-xl font-bold text-gray-800 mb-4">{{ $category['name'] }}</h5>
-                    <p class="text-gray-600 mb-4">{{ $category['description'] }}</p>
-                    <div class="mb-6">
-                        <span class="bg-{{ $category['color'] }}-100 text-{{ $category['color'] }}-800 px-3 py-1 rounded-full text-sm font-semibold">
-                            {{ $category['count'] }} UMKM
-                        </span>
-                    </div>
-                    <a href="{{ route('umkm.index', ['kategori' => $category['slug']]) }}" class="inline-flex items-center text-{{ $category['color'] }}-600 hover:text-{{ $category['color'] }}-800 font-semibold group-hover:underline">
-                        Lihat Produk 
-                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
-                    </a>
+            <div class="group bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="bg-red-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-red-200 transition-colors duration-300">
+                    <i class="fas fa-utensils text-red-600 text-3xl"></i>
                 </div>
-            @endforeach
+                <h5 class="text-xl font-bold text-gray-800 mb-4">Makanan & Minuman</h5>
+                <p class="text-gray-600 mb-6">Produk kuliner khas Karimun Jawa yang lezat dan autentik</p>
+                <a href="{{ route('umkm.index', ['kategori' => 'makanan']) }}" class="inline-flex items-center text-red-600 hover:text-red-800 font-semibold group-hover:underline">
+                    Lihat Produk 
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                </a>
+            </div>
+            
+            <div class="group bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors duration-300">
+                    <i class="fas fa-palette text-green-600 text-3xl"></i>
+                </div>
+                <h5 class="text-xl font-bold text-gray-800 mb-4">Kerajinan Tangan</h5>
+                <p class="text-gray-600 mb-6">Kerajinan unik yang dibuat dengan tangan terampil pengrajin lokal</p>
+                <a href="{{ route('umkm.index', ['kategori' => 'kerajinan']) }}" class="inline-flex items-center text-green-600 hover:text-green-800 font-semibold group-hover:underline">
+                    Lihat Produk
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                </a>
+            </div>
+            
+            <div class="group bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-blue-200 transition-colors duration-300">
+                    <i class="fas fa-tshirt text-blue-600 text-3xl"></i>
+                </div>
+                <h5 class="text-xl font-bold text-gray-800 mb-4">Fashion</h5>
+                <p class="text-gray-600 mb-6">Produk fashion dengan sentuhan khas Karimun Jawa</p>
+                <a href="{{ route('umkm.index', ['kategori' => 'fashion']) }}" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold group-hover:underline">
+                    Lihat Produk
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                </a>
+            </div>
+            
+            <div class="group bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="bg-yellow-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors duration-300">
+                    <i class="fas fa-gift text-yellow-600 text-3xl"></i>
+                </div>
+                <h5 class="text-xl font-bold text-gray-800 mb-4">Oleh-oleh</h5>
+                <p class="text-gray-600 mb-6">Souvenir dan oleh-oleh khas untuk kenang-kenangan</p>
+                <a href="{{ route('umkm.index', ['kategori' => 'oleh-oleh']) }}" class="inline-flex items-center text-yellow-600 hover:text-yellow-800 font-semibold group-hover:underline">
+                    Lihat Produk
+                    <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
+                </a>
+            </div>
         </div>
     </div>
 </section>
 
 <!-- UMKM Unggulan Section -->
-@if($featuredUmkm->count() > 0)
 <section class="py-16 bg-gray-50">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-gray-800 mb-4">UMKM Unggulan</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">{{ $featuredUmkm->count() }} UMKM terbaik dengan produk berkualitas tinggi</p>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">UMKM terbaik dengan produk berkualitas tinggi</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            @foreach($featuredUmkm->take(6) as $umkm)
-                <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="relative overflow-hidden">
-                        @if($umkm->image)
-                            <img src="{{ Storage::url($umkm->image) }}" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" alt="{{ $umkm->title }}">
-                        @else
-                            <div class="w-full h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-                                <i class="fas fa-store text-white text-4xl"></i>
-                            </div>
-                        @endif
-                        
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center">
-                                <i class="fas fa-star mr-1"></i> Unggulan
-                            </span>
-                        </div>
-                        
-                        @if($umkm->view_count > 0)
-                            <div class="absolute top-4 right-4">
-                                <span class="bg-black bg-opacity-50 text-white px-2 py-1 rounded text-xs">
-                                    <i class="fas fa-eye mr-1"></i> {{ $umkm->formatted_view_count }}
-                                </span>
-                            </div>
-                        @endif
-                    </div>
-                    <div class="p-6">
-                        <h5 class="text-xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-                            {{ $umkm->title }}
-                        </h5>
-                        <p class="text-gray-600 mb-4">{{ Str::limit($umkm->description, 80) }}</p>
-                        <div class="flex items-center justify-between">
-                            <div class="text-sm text-gray-500">
-                                <i class="fas fa-calendar mr-1"></i>
-                                {{ $umkm->created_at->format('d M Y') }}
-                            </div>
-                            <a href="{{ route('umkm.show', $umkm->slug) }}" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-300">
-                                Lihat Detail
-                            </a>
-                        </div>
+            <!-- Sample UMKM Cards -->
+            <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="relative overflow-hidden">
+                    <img src="{{ asset('images/umkm1.jpg') }}" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" alt="UMKM 1">
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Makanan</span>
                     </div>
                 </div>
-            @endforeach
+                <div class="p-6">
+                    <h5 class="text-xl font-bold text-gray-800 mb-3">Toko Ikan Asin Pak Budi</h5>
+                    <p class="text-gray-600 mb-4">Produsen ikan asin berkualitas dengan cita rasa khas Karimun Jawa</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-600 ml-2 text-sm">(4.9)</span>
+                        </div>
+                        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-300">
+                            Lihat Detail
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="relative overflow-hidden">
+                    <img src="{{ asset('images/umkm2.jpg') }}" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" alt="UMKM 2">
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Kerajinan</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h5 class="text-xl font-bold text-gray-800 mb-3">Kerajinan Kayu Bu Sari</h5>
+                    <p class="text-gray-600 mb-4">Kerajinan kayu unik dengan motif khas kepulauan</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="text-gray-600 ml-2 text-sm">(4.8)</span>
+                        </div>
+                        <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-300">
+                            Lihat Detail
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <div class="relative overflow-hidden">
+                    <img src="{{ asset('images/umkm3.jpg') }}" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" alt="UMKM 3">
+                    <div class="absolute top-4 left-4">
+                        <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-semibold">Fashion</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h5 class="text-xl font-bold text-gray-800 mb-3">Batik Karimun Collection</h5>
+                    <p class="text-gray-600 mb-4">Koleksi batik dengan motif laut dan kehidupan nelayan</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span class="text-gray-600 ml-2 text-sm">(4.7)</span>
+                        </div>
+                        <a href="#" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-300">
+                            Lihat Detail
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <div class="text-center mt-12">
             <a href="{{ route('umkm.index') }}" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center">
                 <i class="fas fa-store mr-2"></i>
-                Lihat Semua {{ $statistics['umkm_count'] }} UMKM
+                Lihat Semua UMKM
             </a>
         </div>
     </div>
 </section>
-@endif
-
-<!-- UMKM Terbaru Section -->
-@if($latestUmkm->count() > 0)
-<section class="py-16">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold text-gray-800 mb-4">UMKM Terbaru</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">UMKM yang baru bergabung dengan platform kami</p>
-        </div>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            @foreach($latestUmkm as $umkm)
-                <div class="group bg-gradient-to-br from-green-50 to-green-100 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                    <div class="relative overflow-hidden h-48">
-                        @if($umkm->image)
-                            <img src="{{ Storage::url($umkm->image) }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" alt="{{ $umkm->title }}">
-                        @else
-                            <div class="w-full h-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
-                                <i class="fas fa-store text-white text-4xl"></i>
-                            </div>
-                        @endif
-                        
-                        <div class="absolute top-4 left-4">
-                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center">
-                                <i class="fas fa-plus mr-1"></i> Baru
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-800 mb-2 group-hover:text-green-600 transition-colors duration-300">
-                            {{ $umkm->title }}
-                        </h3>
-                        <p class="text-gray-600 text-sm mb-4">{{ Str::limit($umkm->description, 100) }}</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-sm text-gray-500">
-                                {{ $umkm->created_at->diffForHumans() }}
-                            </span>
-                            <a href="{{ route('umkm.show', $umkm->slug) }}" class="inline-flex items-center text-green-600 hover:text-green-800 font-semibold">
-                                Baca Selengkapnya
-                                <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform duration-300"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-</section>
-@endif
 
 <!-- Testimoni Section -->
-@if($testimonials->count() > 0)
-<section class="py-16 bg-gray-50">
+<section class="py-16">
     <div class="container mx-auto px-4">
         <div class="text-center mb-12">
             <h2 class="text-4xl font-bold text-gray-800 mb-4">Apa Kata Mereka</h2>
@@ -238,34 +250,68 @@
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            @foreach($testimonials as $testimonial)
-                <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="flex text-yellow-500 mr-2">
-                            @for($i = 1; $i <= 5; $i++)
-                                @if($i <= $testimonial['rating'])
-                                    <i class="fas fa-star"></i>
-                                @else
-                                    <i class="far fa-star"></i>
-                                @endif
-                            @endfor
-                        </div>
-                        <span class="text-sm text-gray-500 ml-2">{{ $testimonial['rating'] }}/5</span>
-                    </div>
-                    <p class="text-gray-600 mb-4">"{{ $testimonial['comment'] }}"</p>
-                    <div class="flex items-center">
-                        <img src="{{ $testimonial['avatar'] }}" alt="{{ $testimonial['name'] }}" class="w-10 h-10 rounded-full mr-3">
-                        <div>
-                            <h6 class="font-semibold text-gray-800">{{ $testimonial['name'] }}</h6>
-                            <p class="text-sm text-gray-500">{{ $testimonial['role'] }}</p>
-                        </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex text-yellow-500 mr-2">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </div>
                 </div>
-            @endforeach
+                <p class="text-gray-600 mb-4">"Produk UMKM dari Karimun Jawa sangat berkualitas. Ikan asinnya benar-benar segar dan tahan lama!"</p>
+                <div class="flex items-center">
+                    <img src="https://ui-avatars.com/api/?name=Sarah+Putri&background=3b82f6&color=fff" alt="Avatar" class="w-10 h-10 rounded-full mr-3">
+                    <div>
+                        <h6 class="font-semibold text-gray-800">Sarah Putri</h6>
+                        <p class="text-sm text-gray-500">Pelanggan</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex text-yellow-500 mr-2">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="text-gray-600 mb-4">"Platform ini sangat membantu UMKM saya untuk menjangkau lebih banyak pelanggan. Terima kasih!"</p>
+                <div class="flex items-center">
+                    <img src="https://ui-avatars.com/api/?name=Budi+Santoso&background=10b981&color=fff" alt="Avatar" class="w-10 h-10 rounded-full mr-3">
+                    <div>
+                        <h6 class="font-semibold text-gray-800">Budi Santoso</h6>
+                        <p class="text-sm text-gray-500">Pemilik UMKM</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div class="flex items-center mb-4">
+                    <div class="flex text-yellow-500 mr-2">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p class="text-gray-600 mb-4">"Kerajinan tangan dari sini sangat unik dan berkualitas. Cocok untuk oleh-oleh!"</p>
+                <div class="flex items-center">
+                    <img src="https://ui-avatars.com/api/?name=Rina+Dewi&background=f59e0b&color=fff" alt="Avatar" class="w-10 h-10 rounded-full mr-3">
+                    <div>
+                        <h6 class="font-semibold text-gray-800">Rina Dewi</h6>
+                        <p class="text-sm text-gray-500">Wisatawan</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
-@endif
 
 <!-- CTA Section -->
 <section class="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white relative overflow-hidden">
@@ -279,7 +325,7 @@
             <h2 class="text-4xl font-bold mb-6">Bergabung dengan Komunitas UMKM Karimun Jawa</h2>
             <p class="text-xl mb-8 text-blue-100 leading-relaxed">
                 Daftarkan UMKM Anda dan jangkau lebih banyak pelanggan. 
-                Bergabunglah dengan {{ $statistics['umkm_count'] }} UMKM lainnya yang sudah merasakan manfaatnya.
+                Kami siap membantu mengembangkan bisnis Anda.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#" class="bg-yellow-400 hover:bg-yellow-500 text-gray-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg inline-flex items-center justify-center">
@@ -320,11 +366,6 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
-
-    /* Counter animation */
-    .counter {
-        transition: all 0.3s ease;
-    }
 </style>
 @endpush
 
@@ -337,16 +378,7 @@
             if (!startTimestamp) startTimestamp = timestamp;
             const progress = Math.min((timestamp - startTimestamp) / duration, 1);
             const current = Math.floor(progress * (end - start) + start);
-            
-            // Format numbers
-            if (current >= 1000000) {
-                element.innerText = (current / 1000000).toFixed(1) + 'M';
-            } else if (current >= 1000) {
-                element.innerText = (current / 1000).toFixed(1) + 'K';
-            } else {
-                element.innerText = current + (end >= 100 ? '+' : '');
-            }
-            
+            element.innerText = current + '+';
             if (progress < 1) {
                 window.requestAnimationFrame(step);
             }
@@ -366,13 +398,15 @@
                 entry.target.classList.add('fade-in');
                 
                 // Animate counters when statistics section is visible
-                const counters = entry.target.querySelectorAll('.counter');
-                counters.forEach((counter, index) => {
-                    const target = parseInt(counter.getAttribute('data-target'));
-                    setTimeout(() => {
-                        animateCounter(counter, 0, target, 2000);
-                    }, index * 200);
-                });
+                if (entry.target.querySelector('.text-3xl')) {
+                    const counters = entry.target.querySelectorAll('.text-3xl');
+                    counters.forEach((counter, index) => {
+                        const finalNumber = [150, 500, 25, 1000][index];
+                        setTimeout(() => {
+                            animateCounter(counter, 0, finalNumber, 2000);
+                        }, index * 200);
+                    });
+                }
             }
         });
     }, observerOptions);
@@ -398,39 +432,5 @@
             }
         });
     });
-
-    // Lazy loading for images
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    imageObserver.unobserve(img);
-                }
-            });
-        });
-
-        document.querySelectorAll('img[data-src]').forEach(img => {
-            imageObserver.observe(img);
-        });
-    }
-
-    // Auto refresh statistics every 5 minutes
-    setInterval(() => {
-        fetch('/api/statistics')
-            .then(response => response.json())
-            .then(data => {
-                // Update counters with new data
-                document.querySelectorAll('.counter').forEach((counter, index) => {
-                    const newTarget = Object.values(data)[index];
-                    if (newTarget) {
-                        counter.setAttribute('data-target', newTarget);
-                    }
-                });
-            })
-            .catch(console.error);
-    }, 300000); // 5 minutes
 </script>
 @endpush
